@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -111,7 +114,8 @@ public class GestorTarea {
             System.out.println("3. Marcar tarea como completada");
             System.out.println("4. Eliminar tarea");
             System.out.println("5. Filtrar tareas por prioridad");
-            System.out.println("6. Salir");
+            System.out.println("6. Guardar tareas en un archivo de texto");
+            System.out.println("7. Salir");
             System.out.println("======================");
             System.out.print("Elige una opción: ");
 
@@ -141,6 +145,10 @@ public class GestorTarea {
                         break;
 
                     case 6:
+                        guardarFicheroTexto();
+                        break;
+
+                    case 7:
                         System.out.println("Saliendo del gestor...");
                         break;
 
@@ -155,7 +163,7 @@ public class GestorTarea {
                 opcion = 0;
             }
 
-        } while (opcion != 5);
+        } while (opcion != 7);
     }
 
     private void filtrarPorPrioridad() {
@@ -175,6 +183,34 @@ public class GestorTarea {
         }
 
         iniciar();
+    }
+
+    private void guardarFicheroTexto() {
+        //Usamos BufferedWriter y recorremos cada línea guardándola en un fichero .txt
+
+        String nombreFichero;
+        System.out.println("Introduzca el nombre del fichero");
+        nombreFichero = sc.next();
+
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(nombreFichero));
+            //Por cada línea guardo el texto
+            for (Tarea tarea : Tareas) {
+                bw.write("Nombre: " + tarea.getNombre());
+                bw.newLine();
+                bw.write("Descripción: " + tarea.getDescripcion());
+                bw.newLine();
+                bw.write("Prioridad: " + tarea.getPrioridad());
+                bw.newLine();
+                bw.write("-------------------------");
+                bw.newLine();
+            }
+
+            System.out.println("Archivo guardado correctamente");
+            bw.close();
+        } catch (IOException e){
+            System.out.println("Error al guardar la información");
+        }
     }
 }
 
