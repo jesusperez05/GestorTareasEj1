@@ -1,14 +1,14 @@
 public class Tarea {
 
-    String nombre;
-    String descripcion;
-    boolean completada;
+    private String nombre;
+    private String descripcion;
+    private boolean completada;
     private Prioridades prioridad;
 
     // Constructor
     public Tarea(String nombre, String descripcion, Prioridades prioridad) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+        setNombre(nombre);
+        setDescripcion(descripcion);
         this.completada = false;
         this.prioridad = prioridad;
     }
@@ -20,7 +20,10 @@ public class Tarea {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        //Comprobando que el nombre no sea vacío
+        if (!nombre.isEmpty()) {
+            this.nombre = nombre;
+        }
     }
 
     public String getDescripcion() {
@@ -28,7 +31,10 @@ public class Tarea {
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        //Comprobando que la descripción no esté vacío
+        if (!descripcion.isEmpty()) {
+            this.descripcion = descripcion;
+        }
     }
 
     // Indica si la tarea está completada
