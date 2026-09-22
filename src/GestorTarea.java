@@ -2,16 +2,15 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class GestorTarea {
 
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    ArrayList<Tarea> Tareas = new ArrayList<>();
+    static ArrayList<Tarea> Tareas = new ArrayList<>();
 
-    private void añadirTarea() {
+    private static void anhadirTarea() {
         String nombre;
         String descripcion;
         Prioridades tipoPrioridad;
@@ -34,7 +33,7 @@ public class GestorTarea {
         System.out.println("Tarea añadida correctamente.");
     }
 
-    private void eliminarTarea() {
+    private static void eliminarTarea() {
         String nombre;
 
         System.out.println("\nEliminar Tarea");
@@ -54,7 +53,7 @@ public class GestorTarea {
         }
     }
 
-    private boolean completarTarea() {
+    private static boolean completarTarea() {
         String nombre;
 
         System.out.println("\nCompletar Tarea");
@@ -79,7 +78,7 @@ public class GestorTarea {
     }
 
     // Muestra solo las tareas pendientes
-    private void verTareasPendientes() {
+    private static void verTareasPendientes() {
         System.out.println("\n--- TAREAS PENDIENTES ---");
 
         boolean hayPendientes = false;
@@ -101,7 +100,7 @@ public class GestorTarea {
         }
     }
 
-    public void iniciar() {
+    public static void iniciar() {
         int opcion;
 
         // Repite el menú hasta elegir salir
@@ -125,7 +124,7 @@ public class GestorTarea {
                 switch (opcion) {
 
                     case 1:
-                        añadirTarea();
+                        anhadirTarea();
                         break;
 
                     case 2:
@@ -166,7 +165,7 @@ public class GestorTarea {
         } while (opcion != 7);
     }
 
-    private void filtrarPorPrioridad() {
+    private static void filtrarPorPrioridad() {
         //Pedir tipo de prioridad por scanner (ALTA, MEDIA, BAJA)
         Prioridades tipoPrioridad;
 
@@ -185,7 +184,7 @@ public class GestorTarea {
         iniciar();
     }
 
-    private void guardarFicheroTexto() {
+    private static void guardarFicheroTexto() {
         //Usamos BufferedWriter y recorremos cada línea guardándola en un fichero .txt
 
         String nombreFichero;
