@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class GestorTarea {
@@ -10,6 +11,8 @@ public class GestorTarea {
     private void añadirTarea() {
         String nombre;
         String descripcion;
+        Prioridades tipoPrioridad;
+
 
         System.out.println("\nAgregar Tarea");
         System.out.println("Introduce el nombre: ");
@@ -18,8 +21,11 @@ public class GestorTarea {
         System.out.println("Introduce la descripción: ");
         descripcion = sc.nextLine();
 
+        System.out.println("¿Qué prioridad quiere tener?");
+        tipoPrioridad = Prioridades.valueOf(sc.next().toUpperCase());
+
         // Crea y guarda la tarea
-        Tarea tarea = new Tarea(nombre, descripcion);
+        Tarea tarea = new Tarea(nombre, descripcion, tipoPrioridad);
         Tareas.add(tarea);
 
         System.out.println("Tarea añadida correctamente.");
@@ -52,6 +58,7 @@ public class GestorTarea {
         System.out.println("¿Qué tarea ha sido completada?");
         nombre = sc.nextLine();
 
+
         // Busca la tarea por nombre
         for (Tarea tarea : Tareas) {
             if (tarea.getNombre().equalsIgnoreCase(nombre)) {
@@ -79,6 +86,7 @@ public class GestorTarea {
             if (!tarea.isCompletada()) {
                 System.out.println("Nombre: " + tarea.getNombre());
                 System.out.println("Descripción: " + tarea.getDescripcion());
+                System.out.println("Prioridad: " + tarea.getPrioridad());
                 System.out.println("-------------------------");
 
                 hayPendientes = true;

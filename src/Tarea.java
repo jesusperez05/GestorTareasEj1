@@ -3,12 +3,14 @@ public class Tarea {
     String nombre;
     String descripcion;
     boolean completada;
+    private Prioridades prioridad;
 
     // Constructor
-    public Tarea(String nombre, String descripcion) {
+    public Tarea(String nombre, String descripcion, Prioridades prioridad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.completada = false;
+        this.prioridad = prioridad;
     }
 
     // Getters y setters
@@ -36,6 +38,14 @@ public class Tarea {
 
     public void setCompletada(boolean completada) {
         this.completada = completada;
+    }
+
+    public Prioridades getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(Prioridades prioridad) {
+        this.prioridad = prioridad;
     }
 }
 
