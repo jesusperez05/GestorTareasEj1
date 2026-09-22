@@ -33,6 +33,7 @@ public class GestorTarea {
         nombre = sc.nextLine();
 
         // Busca y elimina la tarea
+        //No entiendo muy bien esto, habría estado bien si se hubiese usado if normal.
         boolean eliminada = Tareas.removeIf(
                 tarea -> tarea.getNombre().equalsIgnoreCase(nombre)
         );
