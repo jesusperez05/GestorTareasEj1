@@ -110,7 +110,8 @@ public class GestorTarea {
             System.out.println("2. Ver tareas pendientes");
             System.out.println("3. Marcar tarea como completada");
             System.out.println("4. Eliminar tarea");
-            System.out.println("5. Salir");
+            System.out.println("5. Filtrar tareas por prioridad");
+            System.out.println("6. Salir");
             System.out.println("======================");
             System.out.print("Elige una opción: ");
 
@@ -134,8 +135,12 @@ public class GestorTarea {
                     case 4:
                         eliminarTarea();
                         break;
-
+                        
                     case 5:
+                        filtrarPorPrioridad();
+                        break;
+
+                    case 6:
                         System.out.println("Saliendo del gestor...");
                         break;
 
@@ -151,6 +156,25 @@ public class GestorTarea {
             }
 
         } while (opcion != 5);
+    }
+
+    private void filtrarPorPrioridad() {
+        //Pedir tipo de prioridad por scanner (ALTA, MEDIA, BAJA)
+        Prioridades tipoPrioridad;
+
+        System.out.println("Introduzca qué tipo de prioridad quiere ver (ALTA, MEDIA, BAJA): ");
+        tipoPrioridad = Prioridades.valueOf(sc.next().toUpperCase());
+
+        for (Tarea tarea : Tareas) {
+            if (tarea.getPrioridad() == tipoPrioridad) {
+                System.out.println("Nombre: " + tarea.getNombre());
+                System.out.println("Descripción: " + tarea.getDescripcion());
+                System.out.println("Prioridad: " + tarea.getPrioridad());
+                System.out.println("-------------------------");
+            }
+        }
+
+        iniciar();
     }
 }
 
