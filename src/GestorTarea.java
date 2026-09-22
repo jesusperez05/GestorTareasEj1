@@ -16,14 +16,14 @@ public class GestorTarea {
         Prioridades tipoPrioridad;
 
 
-        System.out.println("\nAgregar Tarea");
-        System.out.println("Introduce el nombre: ");
+        System.out.println("Agregar Tarea");
+        System.out.print("Introduce el nombre: ");
         nombre = sc.nextLine();
 
-        System.out.println("Introduce la descripción: ");
+        System.out.print("Introduce la descripción: ");
         descripcion = sc.nextLine();
 
-        System.out.println("¿Qué prioridad quiere tener?");
+        System.out.print("¿Qué prioridad quiere tener?");
         tipoPrioridad = Prioridades.valueOf(sc.next().toUpperCase());
 
         // Crea y guarda la tarea
@@ -36,8 +36,8 @@ public class GestorTarea {
     private static void eliminarTarea() {
         String nombre;
 
-        System.out.println("\nEliminar Tarea");
-        System.out.println("Introduce el nombre: ");
+        System.out.println("Eliminar Tarea");
+        System.out.print("Introduce el nombre: ");
         nombre = sc.nextLine();
 
         // Busca y elimina la tarea
@@ -56,8 +56,8 @@ public class GestorTarea {
     private static boolean completarTarea() {
         String nombre;
 
-        System.out.println("\nCompletar Tarea");
-        System.out.println("¿Qué tarea ha sido completada?");
+        System.out.println("Completar Tarea");
+        System.out.print("¿Qué tarea ha sido completada?");
         nombre = sc.nextLine();
 
 
@@ -169,7 +169,7 @@ public class GestorTarea {
         //Pedir tipo de prioridad por scanner (ALTA, MEDIA, BAJA)
         Prioridades tipoPrioridad;
 
-        System.out.println("Introduzca qué tipo de prioridad quiere ver (ALTA, MEDIA, BAJA): ");
+        System.out.print("Introduzca qué tipo de prioridad quiere ver (ALTA, MEDIA, BAJA): ");
         tipoPrioridad = Prioridades.valueOf(sc.next().toUpperCase());
 
         for (Tarea tarea : Tareas) {
@@ -188,7 +188,7 @@ public class GestorTarea {
         //Usamos BufferedWriter y recorremos cada línea guardándola en un fichero .txt
 
         String nombreFichero;
-        System.out.println("Introduzca el nombre del fichero");
+        System.out.print("Introduzca el nombre del fichero");
         nombreFichero = sc.next();
 
         try {
